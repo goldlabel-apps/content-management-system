@@ -1,7 +1,6 @@
 {
-  "name": "api",
-  "version": "0.1.0",
-  "private": true,
+  "name": "listingslab-api-admin",
+  "version": "0.0.1",
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

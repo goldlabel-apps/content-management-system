@@ -1,5 +1,4 @@
 
-# api.listingslab.com
+# Listingslab API. Hooman Interface
 
-listingslab API Interface for hoomans
-
+Admin app for a Firestore database.
