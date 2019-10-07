@@ -1,4 +1,4 @@
 
-# Listingslab API. Hooman Interface
+# Listingslab Content Management System 
 
-Admin app for a Firestore database.
+Content Hooman Interface. Admin app for a Firestore database.
