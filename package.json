@@ -1,12 +1,11 @@
 {
   "name": "listingslab-cms",
   "version": "0.0.5",
+  "license": "MIT",
   "scripts": {
     "deploy": "clear && firebase deploy",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   },
   "dependencies": {
     "@material-ui/core": "^4.4.0",
