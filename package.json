@@ -1,6 +1,6 @@
 {
   "name": "listingslab-cms",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "deploy": "clear && firebase deploy",
     "start": "react-scripts start",
