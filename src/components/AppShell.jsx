@@ -13,6 +13,7 @@ class AppShell extends Component {
         const {
             classes,
             store,
+            children,
         } = this.props;
         console.log('store', store.auth.user)
         if (!store.auth.user) {
@@ -29,6 +30,7 @@ class AppShell extends Component {
                     }}>
                     AppShell
                 </Button>
+                {children}
             </React.Fragment>
         );
     }
