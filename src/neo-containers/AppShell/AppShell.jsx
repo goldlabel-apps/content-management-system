@@ -1,38 +1,34 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
-// import cn from 'classnames';
+import cn from 'classnames';
 import { styles } from './AppShell.Style';
 // import {
 //     LoginForm,
 //     BottomAppBar,
 //     Confirm,
 // } from '../index';
-// import {
-//     Grid,
-//     LinearProgress,
-// } from '@material-ui/core/';
+import {
+    Button
+} from '@material-ui/core/';
 
 class AppShell extends Component {  
     
     render (){
-        // const { 
-        //     classes,
-        //     loading,
-        // } = this.props;
-        // const {
-        //     user,
-        // } = this.props.store.auth;
-        
-        // console.log ('loading', loading);
-        // const loading = false;
-
-        
-        
+        const { 
+            classes,
+        } = this.props;
         return (
             <React.Fragment>
-AppShell
+                <Button
+                    className={cn(classes.classOne)}
+                    variant={`contained`}
+                    color={`primary`}
+                    onClick={(e) => {
+                        console.log (e.target);
+                    }}>
+                    AppShell
+                </Button>
             </React.Fragment>
         );
     }
@@ -41,13 +37,11 @@ AppShell
 const mapStateToProps = (store) => {
 	return {
         store,
-        loading: store.top.loading,
 	};
 };
 
 export default (
 	connect(
-		mapStateToProps,
-        null
+		mapStateToProps, null
 	)(withStyles(styles, { withTheme: true })(AppShell))
 );
