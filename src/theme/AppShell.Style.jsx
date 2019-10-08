@@ -1,9 +1,9 @@
 
-import commonStyles from "../../theme/commonStyles";
+import commonStyles from "./commonStyles";
 
 export const styles = theme => ({
     ...commonStyles(theme),
-    iconGridItem:{
+    iconGridItem: {
         textAlign: 'center',
         padding: theme.spacing(2),
     },
