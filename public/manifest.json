@@ -1,8 +1,8 @@
 {
   "short_name": "Agile PWA",
   "name": "Agile PWA",
-  "theme_color": "#abd4d8",
-  "background_color": "#668894",
+  "theme_color": "#42949f",
+  "background_color": "#ffffff",
   "start_url": ".",
   "display": "standalone",
   "icons": [
@@ -12,7 +12,7 @@
       "type": "image/x-icon"
     },
     {
-      "src": "/icon.png",
+      "src": "/logo512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

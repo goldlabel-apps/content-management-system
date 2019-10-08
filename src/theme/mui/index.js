@@ -1,13 +1,13 @@
 const theme = {
-  "direction": "ltr",
+  direction: "ltr",
   palette: {
-    "type": "light",
+    type: "light",
     primary: {
-      main: '#8265a7', // light purple
+      main: "#42949f"
     },
     secondary: {
-      main: '#d93f87', // pink
-    },
-  },
-}
+      main: "#42949f"
+    }
+  }
+};
 export default theme;

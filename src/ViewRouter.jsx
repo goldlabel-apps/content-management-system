@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
-    AppShell,
     Auth,
     Home,
     NotFound,
@@ -18,17 +17,15 @@ class ViewRouter extends Component {
         return (
             <React.Fragment>
                 <Router>
-                    <AppShell>
-                        <Switch>
-                            <Route exact path="/" render={props => {
-                                return (<Home />);
-                            }} />
-                            <Route exact path="/auth" render={props => {
-                                return (<Auth />);
-                            }} />
-                            <Route component={NotFound} />
-                        </Switch>
-                    </AppShell>
+                    <Switch>
+                        <Route exact path="/" render={props => {
+                            return (<Home />);
+                        }} />
+                        <Route exact path="/auth" render={props => {
+                            return (<Auth />);
+                        }} />
+                        <Route component={NotFound} />
+                    </Switch>
                 </Router>
             </React.Fragment>
         );

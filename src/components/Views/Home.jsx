@@ -17,12 +17,18 @@ class Home extends Component {
     render() {
         const {
             classes,
-            nav,
+            // store,
+            user,
             history,
         } = this.props;
+        // console.log('Home', user);
 
-        console.log('Home', nav, history);
+        if (!user) {
+            history.push('/auth');
+            return null;
+        }
 
+        let nav = [];
         const mapNav = false;
         return (
             <div className={cn(classes.view)}>
@@ -77,7 +83,8 @@ class Home extends Component {
 
 const mapStateToProps = (store) => {
     return {
-        nav: store.system.systemState.nav,
+        store,
+        user: store.auth.user
     };
 };
 
