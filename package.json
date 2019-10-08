@@ -3,7 +3,7 @@
   "version": "0.0.8",
   "license": "MIT",
   "scripts": {
-    "deploy": "clear && firebase deploy",
+    "deploy": "clear && yarn build && firebase deploy",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
