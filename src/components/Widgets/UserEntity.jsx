@@ -25,12 +25,13 @@ class UserEntity extends Component {
         if (!user) {
             return null;
         }
+        // console.log()
         return (
             <React.Fragment>
                 <Card className={cn(classes.card)}>
                     <CardHeader
                         title={user.displayName}
-                        subheader={user.email}
+                        subheader={user.providerData[0].providerId}
                         avatar={<Avatar src={user.photoURL} />}
                         action={
                             <IconButton
