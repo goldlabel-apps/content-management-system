@@ -1,17 +1,24 @@
 // Auth
 import React, { Component } from 'react';
+import firebase from "firebase/app";
+import "firebase/auth";
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import * as firebaseui from 'firebaseui'
 import { withRouter } from "react-router";
 import { connect } from 'react-redux';
 import cn from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from '../../theme/AppShell.Style';
-import {
-    Card,
-    CardHeader,
-    CardContent,
-    CardMedia,
-    Typography,
-} from '@material-ui/core/';
+
+
+const uiConfig = {
+    signInFlow: 'popup',
+    signInSuccessUrl: '/',
+    signInOptions: [
+        firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    ],
+    'credentialHelper': firebaseui.auth.CredentialHelper.NONE
+};
 
 class Auth extends Component {
     render() {
@@ -22,22 +29,7 @@ class Auth extends Component {
 
         return (
             <div className={cn(classes.view)}>
-                <Card className={cn(classes.card)}>
-                    <CardHeader
-                        title={`AUTH`}
-                        subheader={`McAuthorise yourself`}
-                    />
-                    <CardMedia
-                        className={classes.media}
-                        image={`/img/wp-json.png`}
-                        title={`Full Stack JavaScript Web development`}
-                    />
-                    <CardContent>
-                        <Typography variant={`body1`}>
-
-                        </Typography>
-                    </CardContent>
-                </Card>
+                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
             </div>
         );
     }

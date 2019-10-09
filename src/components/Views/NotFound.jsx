@@ -22,7 +22,7 @@ class NotFound extends Component {
             history,
         } = this.props;
 
-        console.log('Home', nav, history);
+        // console.log('Home', nav, history);
 
         const mapNav = false;
         return (
@@ -78,7 +78,7 @@ class NotFound extends Component {
 
 const mapStateToProps = (store) => {
     return {
-        nav: store.system.systemState.nav,
+        store,
     };
 };
 

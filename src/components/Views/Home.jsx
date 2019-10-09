@@ -9,7 +9,7 @@ import {
     Card,
     CardHeader,
     CardContent,
-    CardMedia,
+    // CardMedia,
     Typography,
 } from '@material-ui/core/';
 
@@ -36,14 +36,14 @@ class Home extends Component {
                 <div className={cn(classes.pad)}>
                     <Card className={cn(classes.card)}>
                         <CardHeader
-                            title={`listingslab`}
-                            subheader={`globally relevant javaScript engineering`}
+                            title={`Home`}
+                            // subheader={`globally relevant javaScript engineering`}
                         />
-                        <CardMedia
+                        {/* <CardMedia
                             className={classes.media}
                             image={`/png/graphics/404.png`}
                             title={`Full Stack JavaScript Web development`}
-                        />
+                        /> */}
                         <CardContent>
                             <Typography variant={`body1`}>
                                 With over 20 years experience of professional Full Stack JavaScript
