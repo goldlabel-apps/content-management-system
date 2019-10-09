@@ -1,9 +1,9 @@
 import { put, takeEvery, all } from "redux-saga/effects";
 
 export function* authTest(action) {
-  yield console.log("authSignin", action);
+  yield console.log("authTest", action);
   yield put({
-    type: "AUTH/TEST",
+    type: "AUTH/START/TEST",
     payload: action.payload
   });
 }

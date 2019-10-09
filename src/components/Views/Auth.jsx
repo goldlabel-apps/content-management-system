@@ -17,7 +17,9 @@ import {
 
 import { getStore } from '../../';
 
-const action = type => getStore().dispatch({ type });
+const sendAction = (lump) => {
+    getStore().dispatch(lump)
+};
 
 const uiConfig = {
     signInFlow: 'popup',
@@ -44,14 +46,19 @@ class Auth extends Component {
                         color={`primary`}
                         onClick={(e) => {
                             e.preventDefault();
-                            action('AUTH/TEST', { kuahsfkushf: 123 });
+                            sendAction({
+                                type: 'AUTH/TEST',
+                                payload: {
+                                    kuahsfkushf: 123
+                                }
+                            });
                             // console.log('click', e)
                         }}
                     >
                         Trigger saga
                     </Button>
                 </div>
-            </div></div>
+            </div></div >
         );
     }
 }

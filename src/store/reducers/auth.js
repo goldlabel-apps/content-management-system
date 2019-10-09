@@ -14,8 +14,8 @@ const initialState = {
 
 export default function auth(state = initialState, action) {
   switch (action.type) {
-    case "AUTH/TEST":
-      console.log("AUTH/TEST", action);
+    case "AUTH/START/TEST":
+      console.log("AUTH/START/TEST", action);
       return state;
 
     case "AUTH/TOGGLE/AUTHING":
