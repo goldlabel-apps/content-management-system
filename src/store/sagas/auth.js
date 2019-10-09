@@ -1,7 +1,8 @@
 import { put, takeEvery, all } from "redux-saga/effects";
+import firebase from "firebase/app";
 
 export function* authChange(action) {
-  yield console.log("auth >", action);
+  // yield console.log("auth >", action);
   yield put({
     type: "AUTH/SAVE/USER",
     user: action.user
@@ -9,35 +10,15 @@ export function* authChange(action) {
 }
 
 export function* authLogout(action) {
-  yield console.log("authLogout", action);
+  // yield console.log("authLogout", action);
+  firebase.auth().signOut();
   yield put({
     type: "AUTH/DO/LOGOUT"
   });
 }
 
-export function* authSignin(action) {
-  yield console.log("authSignin", action);
-  yield put({
-    type: "TOP/TOGGLE/LOADING",
-    bool: true
-  });
-  yield put({
-    type: "AUTH/TOGGLE/AUTHING",
-    bool: true
-  });
-}
-
-export function* authUpdate(action) {
-  yield put({
-    type: "AUTH/UPDATE_CREDENTIALS",
-    payload: action.payload
-  });
-}
-
 export function* watchAuth() {
   yield takeEvery("AUTH/CHANGE", authChange);
-  yield takeEvery("AUTH/UPDATE", authUpdate);
-  yield takeEvery("AUTH/SIGNIN", authSignin);
   yield takeEvery("AUTH/LOGOUT", authLogout);
 }
 

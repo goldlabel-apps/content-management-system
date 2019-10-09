@@ -4,44 +4,34 @@ import { connect } from 'react-redux';
 import cn from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from '../../theme/AppShell.Style';
-import {
-    Button
-} from '@material-ui/core/';
-import { getStore } from '../../';
-const sendAction = (lump) => {
-    getStore().dispatch(lump)
-};
+// import {
+//     Button
+// } from '@material-ui/core/';
+import { UserEntity } from '../';
+// import { getStore } from '../../';
+// const sendAction = (lump) => {
+//     getStore().dispatch(lump)
+// };
+
 
 class Home extends Component {
-
-
-
     render() {
         const {
             classes,
             user,
             history,
         } = this.props;
-        console.log(user);
         if (!user) {
             history.push('/auth');
             return null;
         }
         return (
             <React.Fragment>
-                <div className={cn(classes.slimView)}><div className={cn(classes.slimViewInner)}>
-                    <Button
-                        variant={`contained`}
-                        color={`primary`}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            sendAction({
-                                type: 'AUTH/LOGOUT'
-                            });
-                        }}>
-                        Logout
-                    </Button>
-                </div></div>
+                <div className={cn(classes.slimView)}>
+                    <div className={cn(classes.slimViewInner)}>
+                        <UserEntity />
+                    </div>
+                </div>
             </React.Fragment>
         );
     }

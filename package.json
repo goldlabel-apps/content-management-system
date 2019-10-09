@@ -1,6 +1,6 @@
 {
   "name": "listingslab-cms",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "license": "MIT",
   "scripts": {
     "deploy": "clear && yarn build && firebase deploy",

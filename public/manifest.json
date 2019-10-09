@@ -1,14 +1,14 @@
 {
-  "short_name": "Agile PWA",
-  "name": "Agile PWA",
-  "theme_color": "#42949f",
+  "short_name": "CMS",
+  "name": "Listingslab CMS",
+  "theme_color": "#333333",
   "background_color": "#ffffff",
   "start_url": ".",
   "display": "standalone",
   "icons": [
     {
       "src": "/favicon.ico",
-      "sizes": "32x32 16x16",
+      "sizes": "64x64 32x32 16x16",
       "type": "image/x-icon"
     },
     {

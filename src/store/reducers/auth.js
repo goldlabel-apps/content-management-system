@@ -15,14 +15,14 @@ const initialState = {
 export default function auth(state = initialState, action) {
   switch (action.type) {
     case "AUTH/DO/LOGOUT":
-      console.log("AUTH/DO/LOGOUT", action.user);
+      // console.log("AUTH/DO/LOGOUT", action.user);
       return {
         ...state,
         updated: Date.now(),
         user: null
       };
     case "AUTH/SAVE/USER":
-      console.log("AUTH/SAVE/USER", action.user);
+      // console.log("AUTH/SAVE/USER", action.user);
       return {
         ...state,
         updated: Date.now(),
@@ -30,7 +30,7 @@ export default function auth(state = initialState, action) {
       };
 
     case "AUTH/TOGGLE/AUTHING":
-      console.log("AUTH/TOGGLE/AUTHING", action);
+      // console.log("AUTH/TOGGLE/AUTHING", action);
       return {
         ...state,
         updated: Date.now(),

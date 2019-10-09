@@ -9,25 +9,28 @@ import cn from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from '../../theme/AppShell.Style';
 
-// import {
-//     Button
-// } from '@material-ui/core/';
+import {
+    Avatar,
+    Button,
+    Card,
+    CardHeader,
+    CardContent,
+    IconButton,
+} from '@material-ui/core/';
+import IconLogout from '@material-ui/icons/Help';
 
-// import { getStore } from '../../';
-// const sendAction = (lump) => {
-//     getStore().dispatch(lump)
-// };
+import { getStore } from '../../';
+const sendAction = (lump) => {
+    getStore().dispatch(lump)
+};
 
 const uiConfig = {
-    // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
-    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
     signInSuccessUrl: '/',
-    // We will display Google and Facebook as auth providers.
     signInOptions: [
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        // firebase.auth.EmailAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
     ]
 };
 
@@ -35,18 +38,56 @@ class Auth extends Component {
     render() {
         const {
             classes,
-            // history,
+            user,
+            history,
         } = this.props;
-
+        // console.log(user)
         return (
             <div className={cn(classes.slimView)}><div className={cn(classes.slimViewInner)}>
-                <StyledFirebaseAuth
-                    uiConfig={uiConfig}
-                    firebaseAuth={firebase.auth()}
-                />
-                <div className={cn(classes.buttonList)}>
-                    button list
-                </div>
+                {!user ?
+
+                    <Card className={cn(classes.card)}>
+                        <CardHeader
+                            title={`Sign in`}
+                            subheader={`Using a github account`}
+                            avatar={<Avatar src={`/logo192.png`} />}
+                            action={
+                                <IconButton
+                                    aria-label="Help"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        sendAction({
+                                            type: 'HELP/OPEN'
+                                        });
+                                    }}
+                                >
+                                    <IconLogout />
+                                </IconButton>
+                            }
+                        />
+                        <CardContent>
+                            <StyledFirebaseAuth
+                                uiConfig={uiConfig}
+                                firebaseAuth={firebase.auth()}
+                            />
+                        </CardContent>
+                    </Card>
+
+
+                    :
+                    <div className={cn(classes.buttonList)}>
+                        <Button
+                            color={`secondary`}
+                            variant={`contained`}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                history.push(`/`);
+                            }}>
+                            Home
+                    </Button>
+                    </div>
+
+                }
             </div></div >
         );
     }
@@ -54,7 +95,8 @@ class Auth extends Component {
 
 const mapStateToProps = (store) => {
     return {
-        store
+        store,
+        user: store.auth.user
     };
 };
 

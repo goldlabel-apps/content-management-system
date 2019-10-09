@@ -1,5 +1,9 @@
 
 export default theme => ({
+    card: {
+        margin: theme.spacing(),
+        padding: theme.spacing()
+    },
     slimView: {
         margin: 'auto',
         maxWidth: 450,
