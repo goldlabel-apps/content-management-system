@@ -13,16 +13,20 @@ const sendAction = (lump) => {
 };
 
 class Home extends Component {
+
+
+
     render() {
         const {
             classes,
-            // user,
-            // history,
+            user,
+            history,
         } = this.props;
-        // if (!user) {
-        //     history.push('/auth');
-        //     return null;
-        // }
+        console.log(user);
+        if (!user) {
+            history.push('/auth');
+            return null;
+        }
         return (
             <React.Fragment>
                 <div className={cn(classes.slimView)}><div className={cn(classes.slimViewInner)}>

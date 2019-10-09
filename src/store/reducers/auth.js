@@ -14,9 +14,20 @@ const initialState = {
 
 export default function auth(state = initialState, action) {
   switch (action.type) {
-    case "AUTH/START/TEST":
-      console.log("AUTH/START/TEST", action);
-      return state;
+    case "AUTH/DO/LOGOUT":
+      console.log("AUTH/DO/LOGOUT", action.user);
+      return {
+        ...state,
+        updated: Date.now(),
+        user: null
+      };
+    case "AUTH/SAVE/USER":
+      console.log("AUTH/SAVE/USER", action.user);
+      return {
+        ...state,
+        updated: Date.now(),
+        user: action.user
+      };
 
     case "AUTH/TOGGLE/AUTHING":
       console.log("AUTH/TOGGLE/AUTHING", action);

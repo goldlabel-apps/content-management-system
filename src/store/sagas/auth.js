@@ -2,17 +2,16 @@ import { put, takeEvery, all } from "redux-saga/effects";
 
 export function* authChange(action) {
   yield console.log("auth >", action);
-  //   yield put({
-  //     type: "AUTH/START/CHANGE",
-  //     payload: action.payload
-  //   });
+  yield put({
+    type: "AUTH/SAVE/USER",
+    user: action.user
+  });
 }
 
 export function* authLogout(action) {
   yield console.log("authLogout", action);
   yield put({
-    type: "AUTH/START/LOGOUT",
-    payload: action.payload
+    type: "AUTH/DO/LOGOUT"
   });
 }
 
@@ -37,7 +36,6 @@ export function* authUpdate(action) {
 
 export function* watchAuth() {
   yield takeEvery("AUTH/CHANGE", authChange);
-
   yield takeEvery("AUTH/UPDATE", authUpdate);
   yield takeEvery("AUTH/SIGNIN", authSignin);
   yield takeEvery("AUTH/LOGOUT", authLogout);
