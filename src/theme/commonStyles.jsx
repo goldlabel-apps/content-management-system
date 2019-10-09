@@ -1,23 +1,21 @@
 
 export default theme => ({
-  app:{
-    // border: '1px solid red',
-    margin: 'auto',
-    maxWidth: 450,
-  },
-  grow:{
-    flexGrow: 1,
-  },
-  white: {
-    color: 'white',
-  },
-  textField: {
-    marginBottom: theme.spacing(),
-    marginTop: theme.spacing(),
-    background: 'white',
-  },
-  loading: {
-    // border: '1px solid red',
-    height: theme.spacing(0.5),
-  }
+    slimView: {
+        margin: 'auto',
+        maxWidth: 450,
+    },
+    slimViewInner: {
+        //border: '1px solid green',
+        marginTop: theme.spacing(2),
+    },
+    buttonList: {
+        marginTop: theme.spacing(2),
+        textAlign: 'center',
+    },
+    grow: {
+        flexGrow: 1,
+    },
+    white: {
+        color: 'white',
+    },
 });

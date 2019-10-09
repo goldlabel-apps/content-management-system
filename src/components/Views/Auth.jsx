@@ -9,7 +9,15 @@ import { connect } from 'react-redux';
 import cn from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from '../../theme/AppShell.Style';
+import '../../theme/firebaseui-styling.global.css';
 
+import {
+    Button
+} from '@material-ui/core/';
+
+import { getStore } from '../../';
+
+const action = type => getStore().dispatch({ type });
 
 const uiConfig = {
     signInFlow: 'popup',
@@ -28,9 +36,22 @@ class Auth extends Component {
         } = this.props;
 
         return (
-            <div className={cn(classes.view)}>
-                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
-            </div>
+            <div className={cn(classes.slimView)}><div className={cn(classes.slimViewInner)}>
+                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+                <div className={cn(classes.buttonList)}>
+                    <Button
+                        variant={`contained`}
+                        color={`primary`}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            action('AUTH/TEST', { kuahsfkushf: 123 });
+                            // console.log('click', e)
+                        }}
+                    >
+                        Trigger saga
+                    </Button>
+                </div>
+            </div></div>
         );
     }
 }

@@ -31,10 +31,9 @@ const firebaseApp = firebase.initializeApp({
 });
 
 firebaseApp.auth().onAuthStateChanged(user => {
-  console.log (`AUTH CHANGE`, user);
+  console.log(`AUTH CHANGE`, user);
   //getStore().dispatch({ type: `FIREBASE_ON_AUTH_STATE_CHANGE`, user });
 });
-
 
 const persistor = persistStore(store);
 

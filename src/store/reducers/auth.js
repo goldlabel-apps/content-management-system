@@ -1,4 +1,3 @@
-
 const initialState = {
   updated: Date.now(),
   user: null,
@@ -8,31 +7,33 @@ const initialState = {
       username: ``,
       password: ``,
       valid: false,
-      remember: true,
+      remember: true
     }
-  ],
+  ]
 };
 
-export default function auth (state = initialState, action ) {
-
+export default function auth(state = initialState, action) {
   switch (action.type) {
+    case "AUTH/TEST":
+      console.log("AUTH/TEST", action);
+      return state;
 
-    case 'AUTH/TOGGLE/AUTHING':
-      console.log ('AUTH/TOGGLE/AUTHING', action)
+    case "AUTH/TOGGLE/AUTHING":
+      console.log("AUTH/TOGGLE/AUTHING", action);
       return {
         ...state,
         updated: Date.now(),
-        authing: action.bool,
-    };
+        authing: action.bool
+      };
 
-    case 'AUTH/UPDATE_CREDENTIALS':
+    case "AUTH/UPDATE_CREDENTIALS":
       return {
         ...state,
         updated: Date.now(),
-        credentials: [action.payload],
-    };
-        
-    case 'STARTOVER':
+        credentials: [action.payload]
+      };
+
+    case "STARTOVER":
       return initialState;
 
     default:

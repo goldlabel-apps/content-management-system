@@ -19,7 +19,7 @@ class NotFound extends Component {
         const {
             classes,
             nav,
-            history,
+            // history,
         } = this.props;
 
         // console.log('Home', nav, history);
