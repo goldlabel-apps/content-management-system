@@ -20,6 +20,9 @@ const getStore = () => {
   return store;
 };
 export { getStore };
+const sendAction = lump => {
+  getStore().dispatch(lump);
+};
 
 const firebaseApp = firebase.initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
@@ -31,8 +34,10 @@ const firebaseApp = firebase.initializeApp({
 });
 
 firebaseApp.auth().onAuthStateChanged(user => {
-  console.log(`AUTH CHANGE`, user);
-  //getStore().dispatch({ type: `FIREBASE_ON_AUTH_STATE_CHANGE`, user });
+  sendAction({
+    type: "AUTH/CHANGE",
+    user
+  });
 });
 
 const persistor = persistStore(store);

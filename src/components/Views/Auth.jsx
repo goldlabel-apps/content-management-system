@@ -3,31 +3,32 @@ import React, { Component } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import * as firebaseui from 'firebaseui'
 import { withRouter } from "react-router";
 import { connect } from 'react-redux';
 import cn from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from '../../theme/AppShell.Style';
-import '../../theme/firebaseui-styling.global.css';
 
-import {
-    Button
-} from '@material-ui/core/';
+// import {
+//     Button
+// } from '@material-ui/core/';
 
-import { getStore } from '../../';
-
-const sendAction = (lump) => {
-    getStore().dispatch(lump)
-};
+// import { getStore } from '../../';
+// const sendAction = (lump) => {
+//     getStore().dispatch(lump)
+// };
 
 const uiConfig = {
+    // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
+    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
     signInSuccessUrl: '/',
+    // We will display Google and Facebook as auth providers.
     signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    ],
-    'credentialHelper': firebaseui.auth.CredentialHelper.NONE
+    ]
 };
 
 class Auth extends Component {
@@ -39,24 +40,12 @@ class Auth extends Component {
 
         return (
             <div className={cn(classes.slimView)}><div className={cn(classes.slimViewInner)}>
-                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+                <StyledFirebaseAuth
+                    uiConfig={uiConfig}
+                    firebaseAuth={firebase.auth()}
+                />
                 <div className={cn(classes.buttonList)}>
-                    <Button
-                        variant={`contained`}
-                        color={`primary`}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            sendAction({
-                                type: 'AUTH/TEST',
-                                payload: {
-                                    kuahsfkushf: 123
-                                }
-                            });
-                            // console.log('click', e)
-                        }}
-                    >
-                        Trigger saga
-                    </Button>
+                    more
                 </div>
             </div></div >
         );
