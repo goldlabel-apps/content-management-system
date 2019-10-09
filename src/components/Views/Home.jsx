@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router";
 import { connect } from 'react-redux';
-import cn from 'classnames';
+// import cn from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from '../../theme/AppShell.Style';
-// import {
-//     Button
-// } from '@material-ui/core/';
-import { UserEntity } from '../';
+import {
+    Grid,
+} from '@material-ui/core/';
+import { UserEntity, MainMenu } from '../';
 // import { getStore } from '../../';
 // const sendAction = (lump) => {
 //     getStore().dispatch(lump)
@@ -17,7 +17,6 @@ import { UserEntity } from '../';
 class Home extends Component {
     render() {
         const {
-            classes,
             user,
             history,
         } = this.props;
@@ -27,11 +26,15 @@ class Home extends Component {
         }
         return (
             <React.Fragment>
-                <div className={cn(classes.slimView)}>
-                    <div className={cn(classes.slimViewInner)}>
+                <Grid container>
+                    <Grid item xs={6}>
+                        <MainMenu />
+                    </Grid>
+                    <Grid item xs={6}>
                         <UserEntity />
-                    </div>
-                </div>
+                    </Grid>
+                </Grid>
+
             </React.Fragment>
         );
     }
