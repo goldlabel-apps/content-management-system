@@ -1,7 +1,7 @@
 {
   "short_name": "CMS",
   "name": "Listingslab CMS",
-  "theme_color": "#333333",
+  "theme_color": "#8265A7",
   "background_color": "#ffffff",
   "start_url": ".",
   "display": "standalone",
