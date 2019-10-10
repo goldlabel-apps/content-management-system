@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
     Auth,
-    Home,
+    Content,
+    AppShell,
     NotFound,
+    
 } from './components';
 
 class ViewRouter extends Component {
@@ -19,7 +21,7 @@ class ViewRouter extends Component {
                 <Router>
                     <Switch>
                         <Route exact path="/" render={props => {
-                            return (<Home />);
+                            return (<AppShell><Content /></AppShell>);
                         }} />
                         <Route exact path="/auth" render={props => {
                             return (<Auth />);
